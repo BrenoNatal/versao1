@@ -8,12 +8,38 @@
                 <p class="card-text">R$ <%= current_account.balance%></p>
             </div>
         </div>
+    <div>
+
+    <div class="d-flex flex-wrap flex-row gap-3">
+        <% @list_deposits.each do |deposit| %>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Saldo</h5>
-                <p class="card-text">R$ <%= current_account.balance%></p>
+                <h5 class="card-title">Deposito de:</h5>
+                <p class="card-text">R$ <%= deposit.amount%></p>
+                <p class="card-text">Feito em <%= deposit.created_at.in_time_zone('Brasilia').strftime("%d-%m-%Y %H:%M:%S") %></p>
             </div>
         </div>
+        <% end %>
+        <% @list_withdrawals.each do |withdrawal| %>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Saque de:</h5>
+                <p class="card-text">R$ <%= withdrawal.amount%></p>
+                <p class="card-text">Feito em <%= withdrawal.created_at.in_time_zone('Brasilia').strftime("%d-%m-%Y %H:%M:%S") %></p>
+            </div>
+        </div>
+        <% end %>
+        <% @list_transactions.each do |transaction| %>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Transição de:</h5>
+                <p class="card-text">R$ <%= transaction.amount%></p>
+                <p class="card-text">Feito em <%= transaction.created_at.in_time_zone('Brasilia').strftime("%d-%m-%Y %H:%M:%S") %></p>
+                <p class="card-text">De: <%= transaction.source_name %> Para: <%= transaction.target_name %></p>
+                <p class="card-text">Tarifa da Transição: <%= transaction.fee %></p>
+            </div>
+        </div>
+        <% end %>
     <div>
 
 

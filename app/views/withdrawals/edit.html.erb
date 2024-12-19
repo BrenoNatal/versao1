@@ -1,0 +1,12 @@
+<% content_for :title, "Editing withdrawal" %>
+
+<h1>Editing withdrawal</h1>
+
+<%= render "form", withdrawal: @withdrawal %>
+
+<br>
+
+<div>
+  <%= link_to "Show this withdrawal", @withdrawal %> |
+  <%= link_to "Back to withdrawals", withdrawals_path %>
+</div>

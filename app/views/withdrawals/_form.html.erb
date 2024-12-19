@@ -1,0 +1,25 @@
+<%= form_with(model: withdrawal) do |form| %>
+  <% if withdrawal.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(withdrawal.errors.count, "error") %> prohibited this withdrawal from being saved:</h2>
+
+      <ul>
+        <% withdrawal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <%= form.number_field :account_id, id: :account_id, class:"form-control", value: current_account.id, type: :hidden  %>
+  
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
