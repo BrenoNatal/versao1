@@ -1,0 +1,33 @@
+<h2>Entrar na Conta</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+  <form>
+    <div class="mb-3 field">
+      <%= f.label :"Numero da Conta" %><br />
+      <%= f.number_field :login, autofocus: true, class:"form-control" %>
+    </div>
+
+
+    <div class="field mb-3 ">
+      <%= f.label :"Senha" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field mb-3 form-check">
+        <%= f.check_box :remember_me , class:"form-check-input" %>
+        <%= f.label :"Permanecer Logado" %>
+      </div>
+    <% end %>
+
+    <div class="actions mb-3 ">
+      <%= f.submit "Entrar", class:"btn btn-primary" %>
+    </div>
+
+  </form>
+
+
+<% end %>
+
+<%= render "devise/shared/links" %>
