@@ -23,5 +23,8 @@ module Versao1
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.after_initialize do
+      ReduceBalanceJob.perform_later
+    end
   end
 end

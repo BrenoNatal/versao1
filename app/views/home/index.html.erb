@@ -5,7 +5,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Saldo</h5>
-                <p class="card-text">R$ <%= current_account.balance%></p>
+                <p class="card-text">R$ <%= number_with_precision(current_account.balance, :precision => 2)%></p>
             </div>
         </div>
     <div>

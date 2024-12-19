@@ -27,7 +27,7 @@ class Account < ApplicationRecord
     return unless balance.negative?
 
     # Reduz 0.1% do saldo
-    self.balance *= 0.999
+    self.balance = self.balance + (self.balance * 0.001)
     save!
   end
 
