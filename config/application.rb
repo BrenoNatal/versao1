@@ -26,5 +26,6 @@ module Versao1
     # config.after_initialize do
     # ReduceBalanceJob.perform_later
     # end
+    config.autoloader = :classic
   end
 end
